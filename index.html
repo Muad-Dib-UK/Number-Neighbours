@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f0">
+  <title>Number Neighbours</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Number Neighbours home"><span class="brand-mark">N</span> Number Neighbours</a>
+      <div class="header-actions">
+        <button class="text-button theme-toggle" id="theme-toggle" type="button" title="Change colour scheme" aria-label="Change colour scheme"><span aria-hidden="true">🎨</span> <span id="theme-name">Meadow</span></button>
+        <button class="text-button" id="how-to" type="button" aria-label="Show game rules"><span aria-hidden="true">ⓘ</span> Rules</button>
+      </div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">A LITTLE NUMBER CHALLENGE</p>
+      <h1>Keep your<br><span>neighbours apart.</span></h1>
+      <p class="lede">Place every number from 1 to 8. Just make sure consecutive numbers never touch.</p>
+    </section>
+
+    <section class="game-card" aria-label="Number placement puzzle">
+      <div class="game-head">
+        <div><p class="section-label">YOUR BOARD</p><p class="board-note">Drag each number into a box.</p></div>
+        <div class="game-actions"><div class="attempt-counter" aria-live="polite">ATTEMPTS <strong id="attempts">0</strong></div><button class="reset-button" id="reset" type="button"><span aria-hidden="true">↻</span> <span id="reset-label">Start over</span></button></div>
+      </div>
+
+      <div class="puzzle" id="puzzle" aria-label="Eight box puzzle board">
+        <div class="puzzle-row single"><button class="box" data-cell="0" aria-label="Top box, empty"></button></div>
+        <div class="puzzle-row"><button class="box" data-cell="1" aria-label="Second row, left box, empty"></button><button class="box" data-cell="2" aria-label="Second row, middle box, empty"></button><button class="box" data-cell="3" aria-label="Second row, right box, empty"></button></div>
+        <div class="puzzle-row"><button class="box" data-cell="4" aria-label="Third row, left box, empty"></button><button class="box" data-cell="5" aria-label="Third row, middle box, empty"></button><button class="box" data-cell="6" aria-label="Third row, right box, empty"></button></div>
+        <div class="puzzle-row single"><button class="box" data-cell="7" aria-label="Bottom box, empty"></button></div>
+      </div>
+
+      <div class="number-area">
+        <div class="number-heading"><p class="section-label">NUMBERS</p><span id="remaining">8 remaining</span></div>
+        <div class="number-tray" id="number-tray" aria-label="Available numbers"></div>
+      </div>
+
+      <div class="status" id="status" role="status" aria-live="polite"><span class="status-dot"></span><span id="status-text">Drag numbers from the tray into the boxes.</span></div>
+    </section>
+    <footer>One of each. No consecutive neighbours. <span>✳</span></footer>
+  </main>
+
+  <dialog id="instructions">
+    <button class="close-button" id="close-how" type="button" aria-label="Close">×</button>
+    <p class="eyebrow">GAME RULES</p>
+    <h2>Give every number<br>a little space.</h2>
+    <p>Drag each number from 1 to 8 into an empty box. Use every number exactly once. The game checks your arrangement as soon as all eight numbers are placed, and each completed arrangement counts as an attempt.</p>
+    <p>Consecutive numbers must not touch horizontally or vertically; diagonal neighbours are allowed. Numbers cannot be moved once placed. If the puzzle has a conflict, select Clear puzzle to try again. Your attempt count is saved in this browser.</p>
+    <button class="check-button modal-done" id="got-it" type="button">Got it</button>
+  </dialog>
+  <script src="game.js"></script>
+</body>
+</html>
